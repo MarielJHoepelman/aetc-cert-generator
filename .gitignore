@@ -39,3 +39,7 @@
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+
+vendor/bundle/*
+vendor/cache/*
+vendor/plugins/*
