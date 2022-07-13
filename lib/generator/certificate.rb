@@ -12,10 +12,11 @@ module Generator
     end
 
     def run
-      event_title = "Medications for Opioid Use Disorders in Primary Care"
-      # event_sub = ""
-      speaker = "Matisyahu Shulman, MD"
-      date = "May 12, 2022"
+      # name = "Jie Jiang, RD, CDN"
+      event_title = "New Formulations for HIV Prevention and Treatment"
+      # event_sub = "More Culturally Responsive Towards Transgender Patients"
+      speaker = "Antonio Urbina, MD"
+      date = "April 7, 2022"
 
       parse_csv.each do |name|
         create_image(name, event_title, date, speaker)
@@ -23,22 +24,22 @@ module Generator
 
     end
 
-    def create_image(name, event_title,date, speaker)
+    def create_image(name, event_title, date, speaker)
       image = MiniMagick::Image.open("lib/generator/images/certificate.pdf")
       image.combine_options do |c|
         c.density 150
         c.quality 100
         c.font "lib/generator/fonts/Georgia-Bold-Italic.ttf"
         c.fill "#2d3e64"
-        c.pointsize 40
+        c.pointsize 35
         c.gravity "center"
-        c.draw "text 0, -40 '#{name.titleize}'"
+        c.draw "text 0, -40 '#{name}'"
+        c.pointsize 22
+        c.draw "text 0, 105 '#{event_title}'"
+        # c.pointsize 18
+        # c.draw "text 0, 135 '#{event_sub}'"
         c.pointsize 18
-        c.draw "text 0, 112 '#{event_title}'"
-        # c.pointsize 12
-        # c.draw "text 0, 128 '#{event_sub}'"
-        c.pointsize 14
-        c.draw "text 0, 150 '#{date}'"
+        c.draw "text 0, 160 '#{date}'"
         c.pointsize 20
         c.draw "text 0, 260 '#{speaker}'"
       end
