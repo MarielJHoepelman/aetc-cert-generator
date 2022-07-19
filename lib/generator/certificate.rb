@@ -12,7 +12,7 @@ module Generator
     end
 
     def run
-      # name = "Jie Jiang, RD, CDN"
+      # name = "test name"
       event_title = "New Formulations for HIV Prevention and Treatment"
       # event_sub = "More Culturally Responsive Towards Transgender Patients"
       speaker = "Antonio Urbina, MD"
@@ -33,7 +33,7 @@ module Generator
         c.fill "#2d3e64"
         c.pointsize 35
         c.gravity "center"
-        c.draw "text 0, -40 '#{name}'"
+        c.draw "text 0, -40 '#{name.humanize.gsub(/\b('?[a-z])/) { $1.capitalize }}'"
         c.pointsize 22
         c.draw "text 0, 105 '#{event_title}'"
         # c.pointsize 18
