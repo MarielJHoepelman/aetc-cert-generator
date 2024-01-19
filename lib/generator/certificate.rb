@@ -13,10 +13,10 @@ module Generator
 
     def run
       # name = "test name"
-      event_title = "New Formulations for HIV Prevention and Treatment"
+      event_title = ""
       # event_sub = "More Culturally Responsive Towards Transgender Patients"
-      speaker = "Antonio Urbina, MD"
-      date = "April 7, 2022"
+      speaker = ""
+      date = ""
 
       parse_csv.each do |name|
         create_image(name, event_title, date, speaker)
@@ -34,7 +34,7 @@ module Generator
         c.pointsize 35
         c.gravity "center"
         c.draw "text 0, -40 '#{name.humanize.gsub(/\b('?[a-z])/) { $1.capitalize }}'"
-        c.pointsize 22
+        c.pointsize 20
         c.draw "text 0, 105 '#{event_title}'"
         # c.pointsize 18
         # c.draw "text 0, 135 '#{event_sub}'"

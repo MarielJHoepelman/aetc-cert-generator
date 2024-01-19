@@ -45,3 +45,4 @@ vendor/cache/*
 vendor/plugins/*
 /lib/generator/data/*
 /lib/generator/output/*
+.DS_Store
